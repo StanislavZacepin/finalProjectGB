@@ -1,0 +1,32 @@
+sudo -s
+apt-get install git
+cd /project
+git init
+git add .
+git commit -m
+git remote add origin https://github.com/StanislavZacepin/finalProjectGB.git
+git push origin master
+cat > Домашние_животные
+заполнив файл собаками, кошками, хомяками
+ctrl+d
+cat > Вьючные_животными
+заполнив файл Лошадьми, верблюдами и ослы
+ctrl+d
+cat Домашние_животные Вьючные_животными > file3
+mv file3 Друзья_человека
+mkdir new
+mv Домашние_животные Вьючные_животными Друзья_человека new
+sudo apt install gnupg
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb
+sudo dpkg -i mysql-apt-config*   or dpkg -i mysql-apt-config_0.8.24-1_all.deb		
+sudo apt install mysql-server
+sudo systemctl status mysql
+mysql_secure_installation
+mysqladmin -u root -p version
+apt download apache2
+dpkg -i apache2*
+dpkg -r apache2
+cat > projectComand
+git add .
+git commit -m "bla bla"
+git push origin
