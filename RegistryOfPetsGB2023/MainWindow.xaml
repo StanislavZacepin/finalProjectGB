@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegistryOfPetsGB2023"
+        xmlns:contr="clr-namespace:RegistryOfPetsGB2023.View.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
@@ -22,11 +23,18 @@
             </MenuItem>
         </Menu>
         <TabControl DockPanel.Dock="Top" Height="430" VerticalAlignment="Top">
-            <TabItem Header="Описание" />
-            <TabItem  Header="Список Животных" />
-            <Grid>
-               
-            </Grid>
+            <TabItem Header="Описание">
+                <Grid Margin="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="61*"/>
+                        <ColumnDefinition Width="333*"/>
+                    </Grid.ColumnDefinitions>
+
+                </Grid>
+            </TabItem>
+            <TabItem  Header="Список Животных">
+                <contr:ItemPanelAnimalList/>
+            </TabItem>           
         </TabControl>
     </DockPanel>
 </Window>
