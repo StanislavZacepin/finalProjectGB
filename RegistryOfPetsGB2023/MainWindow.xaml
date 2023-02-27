@@ -6,7 +6,27 @@
         xmlns:local="clr-namespace:RegistryOfPetsGB2023"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Окрыть"/>
+                <MenuItem Header="Сохранить"/>
+                <MenuItem Header="Загрузить"/>
+                <Separator/>
+                <MenuItem Header="Выход"/>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="Помощь"/>
+                <Separator/>
+                <MenuItem Header="О Програме"/>
+            </MenuItem>
+        </Menu>
+        <TabControl DockPanel.Dock="Top" Height="430" VerticalAlignment="Top">
+            <TabItem Header="Описание" />
+            <TabItem  Header="Список Животных" />
+            <Grid>
+               
+            </Grid>
+        </TabControl>
+    </DockPanel>
 </Window>
