@@ -14,17 +14,17 @@
             <Button Content="Добавить" Margin="3,0" Padding="20,3"/>
             <Button Content="Удалить" Margin="3,0" Padding="20,3" Click="Button_Click"/>
         </UniformGrid>
-        <GroupBox Margin="3" DockPanel.Dock="Top">
-            <ComboBox Margin="26,0,0,0"  ItemsSource="{x:Static data:TestData.animals}"/>
-
-
+        <GroupBox  Margin="3" DockPanel.Dock="Bottom">
+            <ComboBox x:Name="listCombobox"  Margin="26,3,26,3"  ItemsSource="{x:Static data:TestData.animals}"
+                      DisplayMemberPath="Name"
+                      SelectedValuePath="id" SelectionChanged="listCombobox_SelectionChanged"/>
         </GroupBox>
         <DataGrid Background="#FFCBC6C6" Margin="5,0" AutoGenerateColumns="False"
                       IsReadOnly="True"
                       GridLinesVisibility="Vertical" 
                       VerticalGridLinesBrush="DarkBlue"
                       AlternatingRowBackground="#FFA7A7F5"
-                      ItemsSource="{x:Static data:TestData.animals}" MouseLeftButtonUp="DataGrid_MouseLeftButtonUp"
+                      ItemsSource="{x:Static data:TestData.animals}"
                       
                       >
             <DataGrid.Columns>
@@ -34,7 +34,6 @@
                 <DataGridTextColumn Header="Лет" Binding="{Binding Age}" MinWidth="50"/>
                 <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
                 </DataGrid.Columns>
-            </DataGrid>
-        
+            </DataGrid>        
     </DockPanel>
 </UserControl>

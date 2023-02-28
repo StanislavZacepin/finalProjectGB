@@ -1,5 +1,6 @@
 ﻿using RegistryOfPetsGB2023.Interfaces;
 using RegistryOfPetsGB2023.Model.Data;
+using RegistryOfPetsGB2023.Model.Entities.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,21 +32,22 @@ namespace RegistryOfPetsGB2023.View.Controls
         {
 
         }
-        static int index;
+        static IAnimal entity;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(index == null)
-                TestData.AnimDelite(index);
+            
+            if(entity != null)
+            {
+                TestData.AnimDelite(entity);
+            }
         }
 
-        private void DataGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void listCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            IAnimal button = (IAnimal)sender;
-            index = (int)button.id;
-            MessageBox.Show("id"); 
-                //IAnimal animal = sender;
-                //index = animal.id;
-            
+            if (listCombobox.SelectedItem is IAnimal animal)
+            {
+                entity = animal;
+            }
         }
     }
 }

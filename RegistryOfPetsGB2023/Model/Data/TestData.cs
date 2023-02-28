@@ -1,10 +1,8 @@
 ﻿using RegistryOfPetsGB2023.Enum;
 using RegistryOfPetsGB2023.Interfaces;
 using RegistryOfPetsGB2023.Model.Entities;
-using System.Collections.Generic;
+using RegistryOfPetsGB2023.Model.Entities.Base;
 using System.Collections.ObjectModel;
-using System.Dynamic;
-using System.Linq;
 
 namespace RegistryOfPetsGB2023.Model.Data
 {
@@ -21,9 +19,9 @@ namespace RegistryOfPetsGB2023.Model.Data
         public  static ObservableCollection<IAnimal> animals { get; } = new ObservableCollection<IAnimal>() { dogs, cats, hamster };
 
        
-        public static void AnimDelite(int number)
+        public static void AnimDelite(IAnimal animal)
         {
-            animals.RemoveAt(number);
+            animals.Remove(animal);
         }
 
         /* public static List<Dogs> dogs { get; set; } = Enumerable.Range(1, 3)
