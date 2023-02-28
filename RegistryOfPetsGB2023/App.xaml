@@ -1,9 +1,14 @@
 ﻿<Application x:Class="RegistryOfPetsGB2023.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:RegistryOfPetsGB2023"
+             xmlns:local="clr-namespace:RegistryOfPetsGB2023"     
+             xmlns:command="clr-namespace:RegistryOfPetsGB2023.Commands"
+             xmlns:test="clr-namespace:RegistryOfPetsGB2023.Model.Data"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <command:CloseAppCommand x:Key="CloseAppCommand"/>
+            
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

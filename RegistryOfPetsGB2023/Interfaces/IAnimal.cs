@@ -1,14 +1,10 @@
-﻿using RegistryOfPetsGB.Enum;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RegistryOfPetsGB2023.Enum;
 
-namespace RegistryOfPetsGB.Interfaces
+namespace RegistryOfPetsGB2023.Interfaces
 {
     public partial interface IAnimal
     {
+        int id { get; set; }
 
         string Name { get; set; }
         int Age { get; set; }

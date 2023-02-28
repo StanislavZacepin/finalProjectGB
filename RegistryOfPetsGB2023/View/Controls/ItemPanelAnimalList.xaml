@@ -4,29 +4,36 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RegistryOfPetsGB2023.View.Controls"
+             xmlns:data="clr-namespace:RegistryOfPetsGB2023.Model.Data"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="800">
+             d:DesignHeight="350" d:DesignWidth="800">
     <DockPanel Margin="3">
         <TextBlock Text="Животные" DockPanel.Dock="Top" HorizontalAlignment="Center"
-                   FontWeight="Bold" FontSize="20" Foreground="White"/>
+                   FontWeight="Bold" FontSize="20" Foreground="Black"/>
         <UniformGrid DockPanel.Dock="Bottom" Rows="1" HorizontalAlignment="Center" Margin="3">
             <Button Content="Добавить" Margin="3,0" Padding="20,3"/>
             <Button Content="Удалить" Margin="3,0" Padding="20,3"/>
         </UniformGrid>
-        <GroupBox Margin="3" >
-            <DataGrid Background="#FFCBC6C6" Margin="5,0" AutoGenerateColumns="False"
+        <GroupBox Margin="3" DockPanel.Dock="Top">
+            <ComboBox Margin="26,0,0,0"  ItemsSource="{x:Static data:TestData.animals}"/>
+
+
+        </GroupBox>
+        <DataGrid Background="#FFCBC6C6" Margin="5,0" AutoGenerateColumns="False"
                       IsReadOnly="True"
                       GridLinesVisibility="Vertical" 
                       VerticalGridLinesBrush="DarkBlue"
-                      AlternatingRowBackground="#FFA7A7F5">
+                      AlternatingRowBackground="#FFA7A7F5"
+                      ItemsSource="{x:Static data:TestData.animals}"
+                      >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" MinWidth="30"/>
-                    <DataGridTextColumn Header="Имя" MinWidth="100"/>
+                    <DataGridTextColumn Header="Имя" MinWidth="100" />
                     <DataGridTextColumn Header="Животное" MinWidth="150"/>
                     <DataGridTextColumn Header="Лет" MinWidth="50"/>
-                    <DataGridTextColumn Header="Description" Width="*"/>
+                    <DataGridTextColumn Header="Описание" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
-        </GroupBox>
+        
     </DockPanel>
 </UserControl>

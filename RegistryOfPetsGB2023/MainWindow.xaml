@@ -3,10 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      
         xmlns:local="clr-namespace:RegistryOfPetsGB2023"
         xmlns:contr="clr-namespace:RegistryOfPetsGB2023.View.Controls"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        mc:Ignorable="d"        
+        DataContext="{Binding MainWindowViewModel}"
+        Title="{Binding Title}" Height="500" MinWidth="450" MinHeight="500" Width="650">
+    
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
@@ -14,7 +17,7 @@
                 <MenuItem Header="Сохранить"/>
                 <MenuItem Header="Загрузить"/>
                 <Separator/>
-                <MenuItem Header="Выход"/>
+                <MenuItem Header="Выход" Command="{StaticResource CloseAppCommand}" />
             </MenuItem>
             <MenuItem Header="Справка">
                 <MenuItem Header="Помощь"/>
@@ -33,8 +36,15 @@
                 </Grid>
             </TabItem>
             <TabItem  Header="Список Животных">
-                <contr:ItemPanelAnimalList/>
+               <contr:ItemPanelAnimalList HorizontalAlignment="Center" Width="auto" Height="auto"/>
             </TabItem>           
         </TabControl>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem DockPanel.Dock="Right">
+                <ResizeGrip/>
+            </StatusBarItem>
+            <StatusBarItem Content="Готов к работе"/>
+        </StatusBar>
+        
     </DockPanel>
 </Window>

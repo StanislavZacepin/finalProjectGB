@@ -24,5 +24,10 @@ namespace RegistryOfPetsGB2023.View.Controls
         {
             InitializeComponent();
         }
+        
+        public void LoadedTestData()
+        {
+
+        }
     }
 }

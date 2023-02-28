@@ -1,4 +1,4 @@
-﻿namespace RegistryOfPetsGB.Enum
+﻿namespace RegistryOfPetsGB2023.Enum
 {
     public enum TypeOfAnimal
     {
@@ -6,4 +6,5 @@
         PackAnimal// = "Вьючные животное",
 
     };
+
 }
