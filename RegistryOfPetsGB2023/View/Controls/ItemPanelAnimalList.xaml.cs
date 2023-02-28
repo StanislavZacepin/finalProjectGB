@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RegistryOfPetsGB2023.Model.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,11 @@ namespace RegistryOfPetsGB2023.View.Controls
         public void LoadedTestData()
         {
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            TestData.AnimDelite(1);
         }
     }
 }

@@ -2,6 +2,7 @@
 using RegistryOfPetsGB2023.Interfaces;
 using RegistryOfPetsGB2023.Model.Entities;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Dynamic;
 using System.Linq;
 
@@ -12,15 +13,18 @@ namespace RegistryOfPetsGB2023.Model.Data
 
     
 
-        private static Dogs dogs = new Dogs { id=1, Age = 3, Name = "Reks", typeOfanimal = TypeOfAnimal.Pet, Description = "Blabla" };
+        private static Dogs dogs = new Dogs { id=1, Age = 3, Name = "Рекс", typeOfanimal = TypeOfAnimal.Pet, Description = "Чтото там" };
         
-        private static Cats cats = new Cats { id = 2, Age = 5, Name = "Man9", typeOfanimal = TypeOfAnimal.Pet, Description = "Blabla" };
-        private static Hamster hamster = new Hamster { id = 3, Age = 1, Name = "Xomi", typeOfanimal = TypeOfAnimal.Pet, Description = "Blabla" };
+        private static Cats cats = new Cats { id = 2, Age = 5, Name = "Маня", typeOfanimal = TypeOfAnimal.Pet, Description = "Где то там" };
+        private static Hamster hamster = new Hamster { id = 3, Age = 1, Name = "Хоми", typeOfanimal = TypeOfAnimal.Pet, Description = "Както там" };
 
-        public static List<IAnimal> animals { get; } = new List<IAnimal>() { dogs, cats, hamster };
+        public  static ObservableCollection<IAnimal> animals { get; } = new ObservableCollection<IAnimal>() { dogs, cats, hamster };
 
        
-
+        public static void AnimDelite(int number)
+        {
+            animals.RemoveAt(number);
+        }
 
         /* public static List<Dogs> dogs { get; set; } = Enumerable.Range(1, 3)
 .Select(i => new Dogs
