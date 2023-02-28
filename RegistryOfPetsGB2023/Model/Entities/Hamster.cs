@@ -2,6 +2,7 @@
 using RegistryOfPetsGB2023.Interfaces;
 using RegistryOfPetsGB2023.Model.Entities.Base;
 using System;
+using System.Windows;
 
 namespace RegistryOfPetsGB2023.Model.Entities
 {
@@ -11,7 +12,7 @@ namespace RegistryOfPetsGB2023.Model.Entities
 
         public void Voice()
         {
-            Console.WriteLine("Шурм шурум");
+            MessageBox.Show("Шурм шурум");
         }
     }
 }

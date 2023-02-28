@@ -1,4 +1,5 @@
-﻿using RegistryOfPetsGB2023.Model.Data;
+﻿using RegistryOfPetsGB2023.Interfaces;
+using RegistryOfPetsGB2023.Model.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,10 +31,21 @@ namespace RegistryOfPetsGB2023.View.Controls
         {
 
         }
-
+        static int index;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TestData.AnimDelite(1);
+            if(index == null)
+                TestData.AnimDelite(index);
+        }
+
+        private void DataGrid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            IAnimal button = (IAnimal)sender;
+            index = (int)button.id;
+            MessageBox.Show("id"); 
+                //IAnimal animal = sender;
+                //index = animal.id;
+            
         }
     }
 }

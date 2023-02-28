@@ -24,10 +24,11 @@
                       GridLinesVisibility="Vertical" 
                       VerticalGridLinesBrush="DarkBlue"
                       AlternatingRowBackground="#FFA7A7F5"
-                      ItemsSource="{x:Static data:TestData.animals}"
+                      ItemsSource="{x:Static data:TestData.animals}" MouseLeftButtonUp="DataGrid_MouseLeftButtonUp"
+                      
                       >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding id}" MinWidth="30"/>
+                <DataGridTextColumn Header="ID"  Binding="{Binding id}" MinWidth="30"/>
                 <DataGridTextColumn Header="Имя"  Binding="{Binding Name}" MinWidth="100" />
                 <DataGridTextColumn Header="Животное" Binding="{Binding typeOfanimal}" MinWidth="150"/>
                 <DataGridTextColumn Header="Лет" Binding="{Binding Age}" MinWidth="50"/>
