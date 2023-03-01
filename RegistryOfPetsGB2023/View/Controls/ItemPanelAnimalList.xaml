@@ -11,11 +11,11 @@
         <TextBlock Text="Животные" DockPanel.Dock="Top" HorizontalAlignment="Center"
                    FontWeight="Bold" FontSize="20" Foreground="Black"/>
         <UniformGrid DockPanel.Dock="Bottom" Rows="1" HorizontalAlignment="Center" Margin="3">
-            <Button Content="Добавить" Margin="3,0" Padding="20,3"/>
+            <Button Content="Добавить" Margin="3,0" Padding="20,3" Click="Button_Click_1" />
             <Button Content="Удалить" Margin="3,0" Padding="20,3" Click="Button_Click"/>
         </UniformGrid>
         <GroupBox  Margin="3" DockPanel.Dock="Bottom">
-            <ComboBox x:Name="listCombobox"  Margin="26,3,26,3"  ItemsSource="{x:Static data:TestData.animals}"
+            <ComboBox x:Name="listCombobox"  Margin="26,6,26,3"  ItemsSource="{x:Static data:TestData.animals}"
                       DisplayMemberPath="Name"
                       SelectedValuePath="id" SelectionChanged="listCombobox_SelectionChanged"/>
         </GroupBox>
@@ -24,16 +24,15 @@
                       GridLinesVisibility="Vertical" 
                       VerticalGridLinesBrush="DarkBlue"
                       AlternatingRowBackground="#FFA7A7F5"
-                      ItemsSource="{x:Static data:TestData.animals}"
-                      
-                      >
+                      ItemsSource="{x:Static data:TestData.animals}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"  Binding="{Binding id}" MinWidth="30"/>
                 <DataGridTextColumn Header="Имя"  Binding="{Binding Name}" MinWidth="100" />
+                <DataGridTextColumn Header="Вид"  Binding="{Binding Animal}" MinWidth="100" />
                 <DataGridTextColumn Header="Животное" Binding="{Binding typeOfanimal}" MinWidth="150"/>
                 <DataGridTextColumn Header="Лет" Binding="{Binding Age}" MinWidth="50"/>
                 <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
-                </DataGrid.Columns>
-            </DataGrid>        
+            </DataGrid.Columns>
+        </DataGrid>        
     </DockPanel>
 </UserControl>

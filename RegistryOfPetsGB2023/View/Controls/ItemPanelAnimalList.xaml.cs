@@ -49,5 +49,11 @@ namespace RegistryOfPetsGB2023.View.Controls
                 entity = animal;
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            AddAnimals addAnimals = new AddAnimals();
+            addAnimals.Show();
+        }
     }
 }

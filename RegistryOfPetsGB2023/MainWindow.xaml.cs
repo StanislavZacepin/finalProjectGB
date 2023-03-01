@@ -20,6 +20,7 @@ namespace RegistryOfPetsGB2023
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();

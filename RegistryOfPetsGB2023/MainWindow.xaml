@@ -3,13 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      
+        xmlns:m="clr-namespace:RegistryOfPetsGB2023.ViewModels"
         xmlns:local="clr-namespace:RegistryOfPetsGB2023"
         xmlns:contr="clr-namespace:RegistryOfPetsGB2023.View.Controls"
+        xmlns:data="clr-namespace:RegistryOfPetsGB2023.Model.Data"
         mc:Ignorable="d"        
         DataContext="{Binding MainWindowViewModel}"
-        Title="{Binding Title}" Height="500" MinWidth="450" MinHeight="500" Width="650">
-    
+        Title="Реестр Животных" Height="500" MinWidth="450" MinHeight="500" Width="650">    
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
@@ -28,16 +28,12 @@
         <TabControl DockPanel.Dock="Top" Height="430" VerticalAlignment="Top">
             <TabItem Header="Описание">
                 <Grid Margin="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="61*"/>
-                        <ColumnDefinition Width="333*"/>
-                    </Grid.ColumnDefinitions>
-
+                    <Image Source="/anim.jpg"  DockPanel.Dock="Top" Width="auto" Height="350" Grid.Column="1" />
                 </Grid>
             </TabItem>
             <TabItem  Header="Список Животных">
-               <contr:ItemPanelAnimalList HorizontalAlignment="Center" Width="auto" Height="auto"/>
-            </TabItem>           
+                <contr:ItemPanelAnimalList HorizontalAlignment="Center" Width="auto" Height="auto"/>
+            </TabItem>
         </TabControl>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem DockPanel.Dock="Right">

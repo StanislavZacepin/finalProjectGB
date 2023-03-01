@@ -9,12 +9,16 @@ namespace RegistryOfPetsGB2023.Model.Data
     public static class TestData
     {
 
-    
+        private static int id = 3;
 
-        private static Dogs dogs = new Dogs { id=1, Age = 3, Name = "Рекс", typeOfanimal = TypeOfAnimal.Pet, Description = "Чтото там" };
-        
-        private static Cats cats = new Cats { id = 2, Age = 5, Name = "Маня", typeOfanimal = TypeOfAnimal.Pet, Description = "Где то там" };
-        private static Hamster hamster = new Hamster { id = 3, Age = 1, Name = "Хоми", typeOfanimal = TypeOfAnimal.Pet, Description = "Както там" };
+        #region Создание обьектов для Test Даты
+        private static Dogs dogs = new Dogs { id = 1, Age = 3, Name = "Рекс",  Description = "Чтото там" };
+
+        private static Cats cats = new Cats { id = 2, Age = 5, Name = "Маня",  Description = "Где то там" };
+        private static Hamster hamster = new Hamster { id = 3, Age = 1, Name = "Хоми", Description = "Както там" };
+        #endregion
+
+        public static string GlavText { get; set; } = "13. Создать класс с Инкапсуляцией методов и наследованием по диаграмме.\r\n14. Написать программу, имитирующую работу реестра домашних животных.\r\nВ программе должен быть реализован следующий функционал:\r\n14.1 Завести новое животное\r\n14.2 определять животное в правильный класс\r\n14.3 увидеть список команд, которое выполняет животное\r\n14.4 обучить животное новым командам\r\n14.5 Реализовать навигацию по меню\r\n15. Создайте класс Счетчик, у которого есть метод add(), увеличивающий̆\r\nзначение внутренней̆ int переменной̆ на 1 при нажатии “Завести новое\r\nживотное” Сделайте так, чтобы с объектом такого типа можно было работать в\r\nблоке try-with-resources. Нужно бросить исключение, если работа с объектом\r\nтипа счетчик была не в ресурсном try и/или ресурс остался открыт. Значение\r\nсчитать в ресурсе try, если при заведении животного заполнены все поля.";
 
         public  static ObservableCollection<IAnimal> animals { get; } = new ObservableCollection<IAnimal>() { dogs, cats, hamster };
 
@@ -24,6 +28,10 @@ namespace RegistryOfPetsGB2023.Model.Data
             animals.Remove(animal);
         }
 
+        public static void AnimalAdd(IAnimal animal)
+        {
+
+        }
         /* public static List<Dogs> dogs { get; set; } = Enumerable.Range(1, 3)
 .Select(i => new Dogs
 {
