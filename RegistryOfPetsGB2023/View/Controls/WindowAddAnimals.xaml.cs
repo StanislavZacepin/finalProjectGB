@@ -3,7 +3,6 @@ using RegistryOfPetsGB2023.Model.Data;
 using RegistryOfPetsGB2023.Model.Entities;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,18 +18,18 @@ using System.Windows.Shapes;
 namespace RegistryOfPetsGB2023.View.Controls
 {
     /// <summary>
-    /// Логика взаимодействия для AddAnimals.xaml
+    /// Логика взаимодействия для WindowAddAnimals.xaml
     /// </summary>
-    public partial class AddAnimals : Window
+    public partial class WindowAddAnimals : Window
     {
-        public AddAnimals()
+        public WindowAddAnimals()
         {
             InitializeComponent();
             ComboBoxAddAnimals.ItemsSource = new IAnimal[] { new Dogs {},
              new Cats {},
              new Hamster{ } };
-            
-       }
+
+        }
 
         private int count;
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -46,7 +45,7 @@ namespace RegistryOfPetsGB2023.View.Controls
             }
             else
             {
-                switch(ComboBoxAddAnimals.SelectedItem)
+                switch (ComboBoxAddAnimals.SelectedItem)
                 {
                     case Cats:
                         TestData.animals.Add(new Cats { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
@@ -62,11 +61,11 @@ namespace RegistryOfPetsGB2023.View.Controls
                 TestData.id++;
                 ItemPanelAnimalList itemPanelAnimalList = new ItemPanelAnimalList();
                 itemPanelAnimalList.Count = count;
-                
+
                 Close();
             }
         }
 
-        
+
     }
 }

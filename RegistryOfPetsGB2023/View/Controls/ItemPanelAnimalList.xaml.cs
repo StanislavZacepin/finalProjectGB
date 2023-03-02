@@ -75,8 +75,8 @@ namespace RegistryOfPetsGB2023.View.Controls
 
         private void Button_Add(object sender, RoutedEventArgs e)
         {
-            AddAnimals addAnimals = new AddAnimals();
-            addAnimals.Show();
+            WindowAddAnimals windowAddAnimals = new WindowAddAnimals();
+            windowAddAnimals.Show();
         }
     }
 }
