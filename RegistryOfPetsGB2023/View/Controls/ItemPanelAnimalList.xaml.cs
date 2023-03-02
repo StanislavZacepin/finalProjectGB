@@ -3,6 +3,7 @@ using RegistryOfPetsGB2023.Model.Data;
 using RegistryOfPetsGB2023.Model.Entities.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,24 +22,46 @@ namespace RegistryOfPetsGB2023.View.Controls
     /// <summary>
     /// Логика взаимодействия для ItemPanelAnimalList.xaml
     /// </summary>
-    public partial class ItemPanelAnimalList : UserControl
+    public partial class ItemPanelAnimalList : UserControl, INotifyPropertyChanged
     {
         public ItemPanelAnimalList()
         {
+            Count = +3;
             InitializeComponent();
-        }
-        
-        public void LoadedTestData()
-        {
+            this.DataContext = this;
 
         }
-        static IAnimal entity;
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        public int Count
         {
-            
-            if(entity != null)
+            get => count;
+            set
+            {
+                count = value;
+                OnPropertyChanged("Count");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        static IAnimal entity;
+        private static int count;
+
+       
+
+        private void Button_Delite(object sender, RoutedEventArgs e)
+        {
+
+            if (entity != null && TestData.animals != null)
             {
                 TestData.AnimDelite(entity);
+                Count--;
+                entity = null;
             }
         }
 
@@ -50,7 +73,7 @@ namespace RegistryOfPetsGB2023.View.Controls
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Add(object sender, RoutedEventArgs e)
         {
             AddAnimals addAnimals = new AddAnimals();
             addAnimals.Show();

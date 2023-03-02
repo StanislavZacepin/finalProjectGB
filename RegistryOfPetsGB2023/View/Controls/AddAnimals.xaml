@@ -11,20 +11,20 @@
                    FontWeight="Bold" FontSize="20" Foreground="Black"/>
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar Header="Имя:">
-                <TextBox MinWidth="120" MaxWidth="200" Width="128" Margin="91,0,0,0"/>
+                <TextBox x:Name="TextBoxAddName" MinWidth="120" MaxWidth="200" Width="128" Margin="91,0,0,0"/>
             </ToolBar>
             <ToolBar Header="Животное:" Band="1" BandIndex="0">
                 <ComboBox x:Name="ComboBoxAddAnimals" MinWidth="120" MaxWidth="200" Width="128" Margin="58,0,1,0" />
             </ToolBar>
             <ToolBar Header="Лет:" Band="0" BandIndex="0">
-                <TextBox MinWidth="120" MaxWidth="200" Width="128" Margin="95,0,0,0" />
+                <TextBox x:Name="TextBoxAddAge" MinWidth="120" MaxWidth="200" Width="128" Margin="95,0,0,0" />
             </ToolBar>
             <ToolBar Header="Видите Опитсание:" Band="1" BandIndex="0">
-                <TextBox MinWidth="120" MaxWidth="200" Width="128" Margin="13,0,0,0"/>
+                <TextBox x:Name="TextBoxAddDescription" MinWidth="120" MaxWidth="200" Width="128" Margin="13,0,0,0"/>
             </ToolBar>
         </ToolBarTray>
         <UniformGrid DockPanel.Dock="Bottom" Rows="0" HorizontalAlignment="Center" Margin="3">
-            <Button Content="Добавить" Margin="5"  />
+            <Button Content="Добавить" Margin="5" Click="Button_Click_1"  />
             <Button Content="Отмена" Margin="5" Click="Button_Click" />
         </UniformGrid>
     </DockPanel>
