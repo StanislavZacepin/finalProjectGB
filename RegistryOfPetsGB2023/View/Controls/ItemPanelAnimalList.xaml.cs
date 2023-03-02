@@ -1,6 +1,8 @@
 ﻿using RegistryOfPetsGB2023.Interfaces;
+using RegistryOfPetsGB2023.Model;
 using RegistryOfPetsGB2023.Model.Data;
 using RegistryOfPetsGB2023.Model.Entities.Base;
+using RegistryOfPetsGB2023.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,47 +24,22 @@ namespace RegistryOfPetsGB2023.View.Controls
     /// <summary>
     /// Логика взаимодействия для ItemPanelAnimalList.xaml
     /// </summary>
-    public partial class ItemPanelAnimalList : UserControl, INotifyPropertyChanged
+    public partial class ItemPanelAnimalList : UserControl
     {
+        MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+        private IAnimal entity = null;
+
         public ItemPanelAnimalList()
-        {
-            Count = +3;
+        {           
             InitializeComponent();
-            this.DataContext = this;
-
-        }
-
-        public int Count
-        {
-            get => count;
-            set
-            {
-                count = value;
-                OnPropertyChanged("Count");
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        static IAnimal entity;
-        private static int count;
-
-       
+        }                        
+                         
 
         private void Button_Delite(object sender, RoutedEventArgs e)
         {
-
-            if (entity != null && TestData.animals != null)
-            {
-                TestData.AnimDelite(entity);
-                Count--;
-                entity = null;
-            }
+            mainWindowViewModel.DeliteAnimals(entity);
+            entity = null;
+            
         }
 
         private void listCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -75,8 +52,7 @@ namespace RegistryOfPetsGB2023.View.Controls
 
         private void Button_Add(object sender, RoutedEventArgs e)
         {
-            WindowAddAnimals windowAddAnimals = new WindowAddAnimals();
-            windowAddAnimals.Show();
+            mainWindowViewModel.StartWindowAdd();
         }
     }
 }

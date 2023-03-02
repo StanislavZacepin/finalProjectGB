@@ -1,6 +1,7 @@
 ﻿using RegistryOfPetsGB2023.Interfaces;
 using RegistryOfPetsGB2023.Model.Data;
 using RegistryOfPetsGB2023.Model.Entities;
+using RegistryOfPetsGB2023.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,40 +31,23 @@ namespace RegistryOfPetsGB2023.View.Controls
              new Hamster{ } };
 
         }
+        private void TextBox_Error(object sender, ValidationErrorEventArgs e)
+        {
+            MessageBox.Show(e.Error.ErrorContent.ToString());
+        }
 
-        private int count;
-        private void Button_Click(object sender, RoutedEventArgs e)
+     
+        private void Button_Clancel(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Add(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TextBoxAddName.Text) || string.IsNullOrEmpty(ComboBoxAddAnimals.Text) || string.IsNullOrEmpty(TextBoxAddAge.Text) || string.IsNullOrEmpty(TextBoxAddDescription.Text))
-            {
-                MessageBox.Show("Не все поля заполенны");
-            }
-            else
-            {
-                switch (ComboBoxAddAnimals.SelectedItem)
-                {
-                    case Cats:
-                        TestData.animals.Add(new Cats { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
-                        break;
-                    case Dogs:
-                        TestData.animals.Add(new Dogs { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
-                        break;
-                    case Hamster:
-                        TestData.animals.Add(new Hamster { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
-                        break;
-                }
-                count++;
-                TestData.id++;
-                ItemPanelAnimalList itemPanelAnimalList = new ItemPanelAnimalList();
-                itemPanelAnimalList.Count = count;
-
-                Close();
-            }
+           
+            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+            mainWindowViewModel.Addanim(TextBoxAddName, ComboBoxAddAnimals, TextBoxAddAge, TextBoxAddDescription);
+           
         }
 
 

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:RegistryOfPetsGB2023"     
              xmlns:command="clr-namespace:RegistryOfPetsGB2023.Commands"
-             xmlns:test="clr-namespace:RegistryOfPetsGB2023.Model.Data"           
+             xmlns:test="clr-namespace:RegistryOfPetsGB2023.Model.Data"  
+             xmlns:mwvm="clr-namespace:RegistryOfPetsGB2023.ViewModels"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
