@@ -13,7 +13,7 @@ using System.Windows.Input;
 namespace RegistryOfPetsGB2023.ViewModels
 {
     public class MainWindowViewModel
-    { 
+    {
 
 
 
@@ -24,14 +24,22 @@ namespace RegistryOfPetsGB2023.ViewModels
         private static string _Status = "Готов!";
         public static string Status { get => _Status; }
 
-        
+        public static bool Flag { get; set; } = false;
+
+
         /// <summary>
         /// Запустить окно для добавления животного
         /// </summary>
         public void StartWindowAdd()
         {
+
             WindowAddAnimals windowAddAnimals = new WindowAddAnimals();
-            windowAddAnimals.Show();
+            if (Flag == false)
+            {
+                Flag = true;
+                windowAddAnimals.Show();
+            }
+                
         }
 
 
@@ -44,7 +52,7 @@ namespace RegistryOfPetsGB2023.ViewModels
 
             if (entity != null && TestData.animals != null)
             {
-                TestData.AnimDelite(entity);              
+                TestData.AnimDelite(entity);
             }
         }
 
@@ -81,7 +89,16 @@ namespace RegistryOfPetsGB2023.ViewModels
                     case Hamster:
                         TestData.animals.Add(new Hamster { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
                         break;
-                }               
+                    case Camel:
+                        TestData.animals.Add(new Camel { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
+                        break;
+                    case Donkey:
+                        TestData.animals.Add(new Donkey { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
+                        break;
+                    case Horse:
+                        TestData.animals.Add(new Horse { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
+                        break;
+                }
                 TestData.id++;
             }
         }

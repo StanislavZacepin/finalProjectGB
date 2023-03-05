@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:RegistryOfPetsGB2023.View.Controls"
         mc:Ignorable="d"
         DataContext="MainWindowViewModel"
-        Title="Добавления Животного" Height="200" Width="600">
+        Title="Добавления Животного" Height="200" Width="600" Closed="Window_Closed">
     <DockPanel>
         <TextBlock Text="Добавить Животное" DockPanel.Dock="Top" HorizontalAlignment="Center"
                    FontWeight="Bold" FontSize="20" Foreground="Black"/>

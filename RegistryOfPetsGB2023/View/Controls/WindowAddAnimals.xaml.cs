@@ -23,12 +23,20 @@ namespace RegistryOfPetsGB2023.View.Controls
     /// </summary>
     public partial class WindowAddAnimals : Window
     {
+       
         public WindowAddAnimals()
         {
             InitializeComponent();
-            ComboBoxAddAnimals.ItemsSource = new IAnimal[] { new Dogs {},
-             new Cats {},
-             new Hamster{ } };
+            ComboBoxAddAnimals.ItemsSource = new IAnimal[]
+            {
+                new Dogs {},
+                new Cats {},
+                new Hamster{},
+                new Camel{},
+                new Donkey{},
+                new Horse{}
+            };
+
 
         }
         private void TextBox_Error(object sender, ValidationErrorEventArgs e)
@@ -36,20 +44,25 @@ namespace RegistryOfPetsGB2023.View.Controls
             MessageBox.Show(e.Error.ErrorContent.ToString());
         }
 
-     
+
         private void Button_Clancel(object sender, RoutedEventArgs e)
         {
+            MainWindowViewModel.Flag = false;
             Close();
         }
 
         private void Button_Add(object sender, RoutedEventArgs e)
         {
-           
+
             MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
             mainWindowViewModel.Addanim(TextBoxAddName, ComboBoxAddAnimals, TextBoxAddAge, TextBoxAddDescription);
-           
+
         }
 
-
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            MainWindowViewModel.Flag = false;
+            Close();
+        }
     }
 }
