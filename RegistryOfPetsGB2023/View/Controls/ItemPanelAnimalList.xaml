@@ -15,6 +15,7 @@
         <TextBlock Text="Животные" DockPanel.Dock="Top" HorizontalAlignment="Center"
                    FontWeight="Bold" FontSize="20" Foreground="Black"/>
         <UniformGrid DockPanel.Dock="Bottom" Rows="1" HorizontalAlignment="Center" Margin="3">
+            <Button Content="Просмотр команд" Margin="3,0" Padding="20,3" Click="Button_seeList" />
             <Button Content="Добавить" Margin="3,0" Padding="20,3" Click="Button_Add" />
             <Button Content="Удалить" Margin="3,0" Padding="20,3" Click="Button_Delite"/>
         </UniformGrid>

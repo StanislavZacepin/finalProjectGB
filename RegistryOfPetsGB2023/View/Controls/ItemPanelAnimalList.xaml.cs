@@ -26,9 +26,9 @@ namespace RegistryOfPetsGB2023.View.Controls
     /// </summary>
     public partial class ItemPanelAnimalList : UserControl
     {
-        MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
-        private IAnimal entity = null;
-
+        
+        
+        
         public ItemPanelAnimalList()
         {           
             InitializeComponent();
@@ -37,22 +37,30 @@ namespace RegistryOfPetsGB2023.View.Controls
 
         private void Button_Delite(object sender, RoutedEventArgs e)
         {
-            mainWindowViewModel.DeliteAnimals(entity);
-            entity = null;
+            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+            mainWindowViewModel.DeliteAnimals();
             
         }
 
         private void listCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (listCombobox.SelectedItem is IAnimal animal)
+            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+            if (listCombobox.SelectedItem is Entity entity)
             {
-                entity = animal;
+                MainWindowViewModel.entity = entity;
             }
         }
 
         private void Button_Add(object sender, RoutedEventArgs e)
         {
+            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
             mainWindowViewModel.StartWindowAdd();
+        }
+
+        private void Button_seeList(object sender, RoutedEventArgs e)
+        {
+            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+            mainWindowViewModel.StartWindowListComands();
         }
     }
 }

@@ -13,10 +13,8 @@ using System.Windows.Input;
 namespace RegistryOfPetsGB2023.ViewModels
 {
     public class MainWindowViewModel
-    {
-
-
-
+    {       
+       
         private static string _Title = "Реестр Заповедника GB";
 
         public static string Title { get => _Title; }
@@ -25,6 +23,9 @@ namespace RegistryOfPetsGB2023.ViewModels
         public static string Status { get => _Status; }
 
         public static bool Flag { get; set; } = false;
+
+        public static Entity entity { get; set; }
+        public static ComandAnim comandAnim { get; set; }
 
 
         /// <summary>
@@ -41,18 +42,38 @@ namespace RegistryOfPetsGB2023.ViewModels
             }
                 
         }
+        /// <summary>
+        /// Запуск окна с списком команд выброного животного
+        /// </summary>
+        public void StartWindowListComands()
+        {
+
+            if (entity == null)
+                MessageBox.Show("Не выбран животное");
+            else
+            {
+                WindowListComand windowListComand = new WindowListComand();
+                if (Flag == false)
+                {                    
+                    Flag = true;
+                    windowListComand.Show();
+                }
+
+            }
+
+        }
 
 
         /// <summary>
         /// Метод Удаления жипостного
         /// </summary>
         /// <param name="entity"></param>
-        public void DeliteAnimals(IAnimal entity)
+        public void DeliteAnimals()
         {
-
             if (entity != null && TestData.animals != null)
             {
-                TestData.AnimDelite(entity);
+                TestData.animals.Remove(entity);
+                entity = null;
             }
         }
 
@@ -66,41 +87,50 @@ namespace RegistryOfPetsGB2023.ViewModels
         /// <param name="TextBoxAddDescription"></param>
         public void Addanim(TextBox TextBoxAddName, ComboBox ComboBoxAddAnimals, TextBox TextBoxAddAge, TextBox TextBoxAddDescription)
         {
-            int n;
-            bool isNumeric = int.TryParse(TextBoxAddAge.Text, out n);
-            if (!isNumeric || int.Parse(TextBoxAddAge.Text) < 0 || int.Parse(TextBoxAddAge.Text) > 25)
+            try
             {
-                MessageBox.Show("В столбце Сколко лет. Можно водить только цыфры от 0 25");
-            }
-            else if (string.IsNullOrEmpty(TextBoxAddName.Text) || string.IsNullOrEmpty(ComboBoxAddAnimals.Text) || string.IsNullOrEmpty(TextBoxAddAge.Text) || string.IsNullOrEmpty(TextBoxAddDescription.Text))
-            {
-                MessageBox.Show("Не все поля заполенны");
-            }
-            else
-            {
-                switch (ComboBoxAddAnimals.SelectedItem)
+                int n;
+                bool isNumeric = int.TryParse(TextBoxAddAge.Text, out n);
+                if (!isNumeric || int.Parse(TextBoxAddAge.Text) < 0 || int.Parse(TextBoxAddAge.Text) > 25)
                 {
-                    case Cats:
-                        TestData.animals.Add(new Cats { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
-                        break;
-                    case Dogs:
-                        TestData.animals.Add(new Dogs { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
-                        break;
-                    case Hamster:
-                        TestData.animals.Add(new Hamster { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
-                        break;
-                    case Camel:
-                        TestData.animals.Add(new Camel { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
-                        break;
-                    case Donkey:
-                        TestData.animals.Add(new Donkey { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
-                        break;
-                    case Horse:
-                        TestData.animals.Add(new Horse { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
-                        break;
+                    MessageBox.Show("В столбце Сколко лет. Можно водить только цыфры от 0 25");
                 }
-                TestData.id++;
+                else if (string.IsNullOrEmpty(TextBoxAddName.Text) || string.IsNullOrEmpty(ComboBoxAddAnimals.Text) || string.IsNullOrEmpty(TextBoxAddAge.Text) || string.IsNullOrEmpty(TextBoxAddDescription.Text))
+                {
+                    MessageBox.Show("Не все поля заполенны");
+                }
+                else
+                {
+                    switch (ComboBoxAddAnimals.SelectedItem)
+                    {
+                        case Cats:
+                            TestData.animals.Add(new Cats { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
+                            break;
+                        case Dogs:
+                            TestData.animals.Add(new Dogs { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
+                            break;
+                        case Hamster:
+                            TestData.animals.Add(new Hamster { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
+                            break;
+                        case Camel:
+                            TestData.animals.Add(new Camel { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
+                            break;
+                        case Donkey:
+                            TestData.animals.Add(new Donkey { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
+                            break;
+                        case Horse:
+                            TestData.animals.Add(new Horse { id = TestData.id, Name = TextBoxAddName.Text, Age = int.Parse(TextBoxAddAge.Text), Description = TextBoxAddDescription.Text });
+                            break;
+                    }
+                    TestData.id++;
+
+                }
             }
+            catch (System.Exception e)
+            {
+                MessageBox.Show($"Что то не так {e}");
+            }
+           
         }
 
     }
